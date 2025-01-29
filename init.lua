@@ -101,6 +101,8 @@ vim.opt.title = true
 -- break lines on word boundary
 vim.opt.linebreak = true
 
+vim.opt.foldlevelstart = 99
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
@@ -268,10 +270,15 @@ require('lazy').setup({
   -- https://github.com/vhyrro/luarocks.nvim - allows plugins to install which use luarocks
   {
     'vhyrro/luarocks.nvim',
-    priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+    priority = 1001, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
     config = true,
   },
-
+  -- cool markdown thing
+  {
+    'plasticboy/vim-markdown',
+    branch = 'master',
+    require = { 'godlygeek/tabular' },
+  },
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
